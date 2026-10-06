@@ -1,8 +1,8 @@
-import React from "react";
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
+
 import Navbar from "./components/Navbar";
 import Hero from "./sections/Hero";
 import About from "./sections/About";
@@ -14,19 +14,33 @@ import Skills from "./sections/Skills";
 import Exploring from "./sections/Exploring";
 import Contact from "./sections/Contact";
 import Footer from "./sections/Footer";
+import NotFound from "./sections/NotFound";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function App() {
   const appRef = useRef(null);
+  const [isNotFound, setIsNotFound] = useState(false);
+
+  useEffect(() => {
+    const currentPath = window.location.pathname;
+
+    if (currentPath !== "/" && currentPath !== "/index.html") {
+      setIsNotFound(true);
+    } else {
+      setIsNotFound(false);
+    }
+  }, []);
 
   useEffect(() => {
     const lenis = new Lenis({ duration: 1.15, smoothWheel: true });
     const raf = (time) => {
       lenis.raf(time * 1000);
     };
+
     gsap.ticker.add(raf);
     gsap.ticker.lagSmoothing(0);
+
     return () => {
       gsap.ticker.remove(raf);
       lenis.destroy();
@@ -49,8 +63,13 @@ export default function App() {
         );
       });
     }, appRef);
+
     return () => ctx.revert();
   }, []);
+
+  if (isNotFound) {
+    return <NotFound />;
+  }
 
   return (
     <div ref={appRef}>
