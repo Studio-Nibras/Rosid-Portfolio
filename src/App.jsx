@@ -61,9 +61,9 @@ export default function App() {
         <Projects />
         <Experience />
         <HowIWork />
-        <BeyondCode />
         <Skills />
         <Exploring />
+        <BeyondCode />
         <Contact />
       </main>
       <Footer />

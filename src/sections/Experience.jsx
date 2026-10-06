@@ -14,7 +14,7 @@ const items = [
 export default function Experience() {
   return (
     <section className="section experience">
-      <SectionLabel number="03">EXPERIENCE</SectionLabel>
+      <SectionLabel number="04">EXPERIENCE</SectionLabel>
       <div className="section-intro">
         <h2 data-reveal>
           WHERE I'VE

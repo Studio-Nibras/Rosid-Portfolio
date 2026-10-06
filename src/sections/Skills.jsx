@@ -13,7 +13,7 @@ const groups = [
 export default function Skills() {
   return (
     <section className="section skills">
-      <SectionLabel number="05">TOOLS I WORK WITH</SectionLabel>
+      <SectionLabel number="06">TOOLS I WORK WITH</SectionLabel>
       {groups.map(([name, items]) => (
         <div className="skill-group" key={name}>
           <h3 className="mono">{name}</h3>

@@ -40,7 +40,7 @@ export default function Projects() {
 
   return (
     <section id="work" ref={root} className="section projects">
-      <SectionLabel number="02">SELECTED WORKS</SectionLabel>
+      <SectionLabel number="03">SELECTED WORKS</SectionLabel>
 
       <div className="section-intro">
         <h2 data-reveal>

@@ -3,7 +3,7 @@ import SectionLabel from "../components/SectionLabel";
 export default function BeyondCode() {
   return (
     <section className="section beyond">
-      <SectionLabel number="04">BEYOND CODE</SectionLabel>
+      <SectionLabel number="08">BEYOND CODE</SectionLabel>
       <div className="metrics">
         <div>
           <strong>50+</strong>
