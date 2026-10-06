@@ -4,7 +4,7 @@ export const projects = [
     title: "NoteFlow",
     category: "Full-Stack / AI",
     year: "2026",
-    role: "Frontend / Full-Stack",
+    role: "Full-Stack Developer",
     description:
       "An AI-assisted learning workspace connecting speech-to-text, mind maps, quizzes and learning workflows.",
     tech: ["React", "Node.js", "Express.js", "Supabase"],
@@ -24,7 +24,7 @@ export const projects = [
     title: "Travelina",
     category: "My First Project",
     year: "2025",
-    role: "Developer",
+    role: "Frontend Developer",
     description:
       "Travelina is my introductory web development project featuring a travel company landing page. It showcases my early hands-on experience in building responsive layouts with Bootstrap and adding functional interactivity using plain JavaScript.",
     tech: ["HTML", "Bootstrap", "JavaScript"],
