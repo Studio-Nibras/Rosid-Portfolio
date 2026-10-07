@@ -260,7 +260,7 @@ body {
 }
 
 .navbar__mobile a span {
-  color: #777;
+  color: var(--accent);
 
   font: 400 10px / 1 "IBM Plex Mono";
   letter-spacing: 0.08em;
