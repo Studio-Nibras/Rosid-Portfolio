@@ -171,6 +171,12 @@ h1,h2,h3,p{margin:0}
 .project-card__visual .mock-browser {
   width: 88%;
   height: 78%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  background: rgba(255, 255, 255, 0.42);
+  border-radius: 14px;
+  overflow: hidden;
 }
 
 .project-card__info {
@@ -203,22 +209,60 @@ h1,h2,h3,p{margin:0}
   line-height: 1.6;
 }
 
+.mock-browser__bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 36px;
+  padding: 0 14px;
+  border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+  background: rgba(244, 243, 239, 0.9);
+}
+
+.mock-browser__bar i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgba(17, 17, 17, 0.25);
+  display: inline-block;
+}
+
+.mock-browser__bar span {
+  margin-left: auto;
+  font: 500 10px "IBM Plex Mono", monospace;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.mock-browser__body {
+  flex: 1;
+  min-height: 0;
+  background: #e6e2db;
+}
+
+.mock-browser__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .project-card__meta {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
-
-  padding-top: 20px;
-  border-top: 1px solid var(--line);
-
-  font-size: 11px;
-  line-height: 1.4;
+  align-items: end;
 }
 
 .project-link {
   color: var(--ink);
   text-decoration: underline;
   text-underline-offset: 4px;
+  transition: color 0.2s ease;
+}
+
+.project-link:hover {
+  color: var(--accent);
 }
 
 /* HOW I WORK */

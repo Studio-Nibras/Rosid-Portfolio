@@ -67,8 +67,11 @@ export default function Projects() {
                 </div>
 
                 <div className="mock-browser__body">
-                  <strong>{project.title}</strong>
-                  <small>{project.category}</small>
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="mock-browser__image"
+                  />
                 </div>
               </div>
             </div>
@@ -85,7 +88,15 @@ export default function Projects() {
                 <span>{project.year}</span>
                 <span>{project.role}</span>
                 <span>{project.tech.join(" · ")}</span>
-                <span className="project-link">VIEW PROJECT ↗</span>
+
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="project-link"
+                >
+                  VIEW PROJECT ↗
+                </a>
               </div>
             </div>
           </article>
