@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 
 import Navbar from "./components/Navbar";
+import Preloader from "./sections/Preloader";
 import Hero from "./sections/Hero";
 import About from "./sections/About";
 import Projects from "./sections/Projects";
@@ -21,6 +22,7 @@ gsap.registerPlugin(ScrollTrigger);
 export default function App() {
   const appRef = useRef(null);
   const [isNotFound, setIsNotFound] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const currentPath = window.location.pathname;
@@ -30,6 +32,17 @@ export default function App() {
     } else {
       setIsNotFound(false);
     }
+  }, []);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => setIsLoading(false), 1500);
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      window.clearTimeout(timer);
+      document.body.style.overflow = previousOverflow;
+    };
   }, []);
 
   useEffect(() => {
@@ -72,20 +85,26 @@ export default function App() {
   }
 
   return (
-    <div ref={appRef}>
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Projects />
-        <Experience />
-        <HowIWork />
-        <Skills />
-        <Exploring />
-        <BeyondCode />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <>
+      <Preloader isHidden={!isLoading} />
+      <div
+        ref={appRef}
+        className={isLoading ? "app-shell app-shell--loading" : "app-shell"}
+      >
+        <Navbar />
+        <main>
+          <Hero />
+          <About />
+          <Projects />
+          <Experience />
+          <HowIWork />
+          <Skills />
+          <Exploring />
+          <BeyondCode />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
+    </>
   );
 }

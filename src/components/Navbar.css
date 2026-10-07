@@ -1,0 +1,304 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90px;
+  padding: 0 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  z-index: 1000;
+
+  transition:
+    background 0.35s ease,
+    backdrop-filter 0.35s ease,
+    -webkit-backdrop-filter 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+/* Logo */
+
+.navbar__logo {
+  color: #171717;
+  font: 600 22px / 1 "Space Grotesk";
+  letter-spacing: -0.06em;
+  text-decoration: none;
+
+  position: relative;
+  z-index: 1002;
+
+  transition: color 0.25s ease;
+}
+
+.navbar__logo:hover {
+  color: var(--accent);
+}
+
+/* Desktop navigation */
+
+.navbar__desktop {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+}
+
+.navbar__desktop a {
+  position: relative;
+
+  color: #303030;
+  font: 500 11px / 1 "IBM Plex Mono";
+  letter-spacing: 0.08em;
+  text-decoration: none;
+
+  transition:
+    color 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.navbar__desktop a::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+
+  width: 100%;
+  height: 1px;
+
+  background: var(--accent);
+
+  transform: scaleX(0);
+  transform-origin: right;
+
+  transition: transform 0.3s ease;
+}
+
+.navbar__desktop a:hover {
+  color: var(--accent);
+}
+
+.navbar__desktop a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Scrolled state */
+
+.navbar--scrolled {
+  background: rgba(255, 255, 255, 0.82);
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+}
+
+/* Keep dark text after scrolling */
+
+.navbar--scrolled .navbar__logo {
+  color: #171717;
+}
+
+.navbar--scrolled .navbar__desktop a {
+  color: #303030;
+}
+
+/* Mobile toggle */
+
+.navbar__toggle {
+  display: none;
+
+  position: relative;
+
+  width: 42px;
+  height: 30px;
+
+  padding: 0;
+  border: 0;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  z-index: 1002;
+}
+
+.navbar__toggle span {
+  position: absolute;
+  right: 0;
+
+  display: block;
+
+  height: 1px;
+
+  background: #171717;
+
+  transform-origin: center;
+
+  transition:
+    width 0.3s ease,
+    transform 0.3s ease,
+    top 0.3s ease,
+    background 0.25s ease;
+}
+
+.navbar__toggle span:first-child {
+  top: 9px;
+  width: 18px;
+}
+
+.navbar__toggle span:last-child {
+  top: 19px;
+  width: 30px;
+}
+
+.navbar__toggle:hover span {
+  background: var(--accent);
+}
+
+/* Hamburger → X */
+
+.navbar__toggle.is-open span:first-child {
+  top: 14px;
+  width: 30px;
+  transform: rotate(45deg);
+}
+
+.navbar__toggle.is-open span:last-child {
+  top: 14px;
+  width: 30px;
+  transform: rotate(-45deg);
+}
+
+/* Mobile overlay */
+
+.navbar__mobile {
+  position: fixed;
+  inset: 0;
+
+  background: var(--dark);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 100px 40px 40px;
+
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+
+  transition:
+    opacity 0.35s ease,
+    visibility 0.35s ease;
+}
+
+.navbar__mobile.is-open {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Mobile links */
+
+.navbar__mobile a {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+
+  padding: 18px 0;
+
+  color: #f2f0eb;
+
+  font: 600 clamp(48px, 13vw, 80px) / 0.9 "Space Grotesk";
+  letter-spacing: -0.06em;
+
+  text-decoration: none;
+
+  transform: translateY(25px);
+  opacity: 0;
+
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease,
+    color 0.25s ease;
+}
+
+.navbar__mobile.is-open a {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.navbar__mobile.is-open a:nth-child(1) {
+  transition-delay: 0.08s;
+}
+
+.navbar__mobile.is-open a:nth-child(2) {
+  transition-delay: 0.14s;
+}
+
+.navbar__mobile.is-open a:nth-child(3) {
+  transition-delay: 0.2s;
+}
+
+.navbar__mobile a:hover {
+  color: var(--accent);
+}
+
+.navbar__mobile a span {
+  color: #777;
+
+  font: 400 10px / 1 "IBM Plex Mono";
+  letter-spacing: 0.08em;
+
+  transition: color 0.25s ease;
+}
+
+.navbar__mobile a:hover span {
+  color: var(--accent);
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .navbar {
+    height: 76px;
+    padding: 0 24px;
+  }
+
+  .navbar__desktop {
+    display: none;
+  }
+
+  .navbar__toggle {
+    display: block;
+  }
+
+  .navbar__mobile {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+/* Small mobile */
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0 20px;
+  }
+
+  .navbar__mobile {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .navbar__mobile a {
+    gap: 14px;
+  }
+}

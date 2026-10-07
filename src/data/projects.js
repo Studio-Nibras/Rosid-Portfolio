@@ -1,19 +1,10 @@
+import travelinaImg from "../assets/projects/travelina.png";
+import noteflowImg from "../assets/projects/noteflow.png";
+import dietmateImg from "../assets/projects/diet-mate.png";
+
 export const projects = [
   {
     number: "01",
-    title: "NoteFlow",
-    category: "Full-Stack / AI",
-    year: "2026",
-    role: "Full-Stack Developer",
-    description:
-      "An AI-assisted learning workspace connecting speech-to-text, mind maps, quizzes and learning workflows.",
-    tech: ["React", "Node.js", "Express.js", "Supabase"],
-    image:
-      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
-    link: "https://example.com/noteflow",
-  },
-  {
-    number: "02",
     title: "Travelina",
     category: "My First Project",
     year: "2025",
@@ -21,9 +12,20 @@ export const projects = [
     description:
       "Travelina is my introductory web development project featuring a travel company landing page. It showcases my early hands-on experience in building responsive layouts with Bootstrap and adding functional interactivity using plain JavaScript.",
     tech: ["HTML", "Bootstrap", "JavaScript"],
-    image:
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
-    link: "https://example.com/travelina",
+    image: travelinaImg,
+    link: "https://travelina.vercel.app",
+  },
+  {
+    number: "02",
+    title: "NoteFlow",
+    category: "Full-Stack / AI",
+    year: "2026",
+    role: "Full-Stack Developer",
+    description:
+      "An AI-assisted learning workspace connecting speech-to-text, mind maps, quizzes and learning workflows.",
+    tech: ["React", "Node.js", "Express.js", "Supabase"],
+    image: noteflowImg,
+    link: "https://noteflow-fe.vercel.app/",
   },
   {
     number: "03",
@@ -34,8 +36,7 @@ export const projects = [
     description:
       "A web-based diet assessment experience built around a guided questionnaire and personalized journey.",
     tech: ["HTML", "SCSS", "JavaScript", "LocalStorage"],
-    image:
-      "https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1200&q=80",
+    image: dietmateImg,
     link: "https://diet-mate-two.vercel.app",
   },
 ];

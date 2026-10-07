@@ -1,30 +1,81 @@
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import "./Navbar.css";
 
 export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 40);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
+  const toggleMenu = () => {
+    setMenuOpen((prev) => !prev);
+  };
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
   return (
-    <header className={`nav ${scrolled ? "nav--scrolled" : ""}`}>
-      <a className="nav__logo" href="#top" aria-label="Rosid home">
+    <header
+      className={`navbar ${scrolled ? "navbar--scrolled" : ""} ${
+        menuOpen ? "navbar--open" : ""
+      }`}
+    >
+      <a href="#top" className="navbar__logo" onClick={closeMenu}>
         Rosid Hakimudin
       </a>
-      <nav aria-label="Primary navigation">
+
+      <nav className="navbar__desktop">
         <a href="#work">WORK</a>
         <a href="#about">ABOUT</a>
         <a href="#contact">CONTACT</a>
       </nav>
-      <a
-        className="nav__arrow"
-        href="mailto:hello@rosidhakimudin.dev"
-        aria-label="Email Rosid"
+
+      <button
+        className={`navbar__toggle ${menuOpen ? "is-open" : ""}`}
+        onClick={toggleMenu}
+        aria-label={menuOpen ? "Close menu" : "Open menu"}
+        aria-expanded={menuOpen}
       >
-        ↗
-      </a>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav className={`navbar__mobile ${menuOpen ? "is-open" : ""}`}>
+        <a href="#work" onClick={closeMenu}>
+          <span>01</span>
+          WORK
+        </a>
+
+        <a href="#about" onClick={closeMenu}>
+          <span>02</span>
+          ABOUT
+        </a>
+
+        <a href="#contact" onClick={closeMenu}>
+          <span>03</span>
+          CONTACT
+        </a>
+      </nav>
     </header>
   );
 }

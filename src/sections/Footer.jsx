@@ -11,8 +11,10 @@ export default function Footer() {
         </p>
       </div>
       <div className="footer__links">
-        <a href="#work">GITHUB ↗</a>
-        <a href="#work">LINKEDIN ↗</a>
+        <a href="https://github.com/Studio-Nibras">GITHUB ↗</a>
+        <a href="https://www.linkedin.com/in/rosid-hakimudin-213a52329/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BU6E%2Fr2cfTFKAtUXOu6AK2g%3D%3D">
+          LINKEDIN ↗
+        </a>
         <a href="mailto:hello@rosidhakimudin.dev">EMAIL ↗</a>
       </div>
       <div className="footer__bottom">

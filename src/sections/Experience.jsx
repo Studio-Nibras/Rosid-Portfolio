@@ -1,7 +1,12 @@
 import React from "react";
 import SectionLabel from "../components/SectionLabel";
 const items = [
-  ["2026", "STEMREACH 1.0", "Project Manager", "UNIBA × UTP Malaysia"],
+  [
+    "2026",
+    "STEMREACH 1.0",
+    "Project Manager",
+    "UNIBA Surakarta × UTP Malaysia Student Mobility Program ",
+  ],
   ["2026", "HMIF", "Vice Chairman", "Informatics Student Association"],
   [
     "2026",
