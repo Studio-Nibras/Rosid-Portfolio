@@ -267,6 +267,14 @@
 /* Mobile */
 
 @media (max-width: 768px) {
+  .navbar--scrolled {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: transparent;
+    border-bottom: none;
+    box-shadow: none;
+  }
+
   .navbar {
     height: 76px;
     padding: 0 24px;
