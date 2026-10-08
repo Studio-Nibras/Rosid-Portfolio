@@ -51,11 +51,11 @@ export default function Navbar() {
       </a>
 
       <nav className="navbar__desktop">
-        <a href="#work" onClick={closeMenu}>
-          WORK
-        </a>
         <a href="#about" onClick={closeMenu}>
           ABOUT
+        </a>
+        <a href="#work" onClick={closeMenu}>
+          WORK
         </a>
         <a href="#contact" onClick={closeMenu}>
           CONTACT
