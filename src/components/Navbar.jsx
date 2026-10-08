@@ -19,16 +19,16 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    const originalOverflow = document.body.style.overflow;
-
-    if (menuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = originalOverflow;
+    if (!menuOpen) {
+      document.body.style.overflow = "";
+      return;
     }
 
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
     return () => {
-      document.body.style.overflow = originalOverflow;
+      document.body.style.overflow = previousOverflow;
     };
   }, [menuOpen]);
 
@@ -51,9 +51,15 @@ export default function Navbar() {
       </a>
 
       <nav className="navbar__desktop">
-        <a href="#work">WORK</a>
-        <a href="#about">ABOUT</a>
-        <a href="#contact">CONTACT</a>
+        <a href="#work" onClick={closeMenu}>
+          WORK
+        </a>
+        <a href="#about" onClick={closeMenu}>
+          ABOUT
+        </a>
+        <a href="#contact" onClick={closeMenu}>
+          CONTACT
+        </a>
       </nav>
 
       <button

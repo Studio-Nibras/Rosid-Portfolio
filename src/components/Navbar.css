@@ -29,7 +29,6 @@ body {
 }
 
 /* Logo */
-
 .navbar__logo {
   color: #171717;
   font: 600 22px / 1 "Space Grotesk";
@@ -46,8 +45,24 @@ body {
   color: var(--accent);
 }
 
-/* Desktop navigation */
+.navbar__desktop a,
+.navbar__mobile a {
+  -webkit-tap-highlight-color: transparent;
+}
 
+.navbar__desktop a:active,
+.navbar__desktop a:focus,
+.navbar__mobile a:active,
+.navbar__mobile a:focus {
+  color: inherit;
+}
+
+.navbar__desktop a:active::after,
+.navbar__desktop a:focus::after {
+  transform: scaleX(0);
+}
+
+/* Desktop navigation */
 .navbar__desktop {
   display: flex;
   align-items: center;
@@ -95,7 +110,6 @@ body {
 }
 
 /* Scrolled state */
-
 .navbar--scrolled {
   background: rgba(255, 255, 255, 0.82);
 
@@ -107,8 +121,6 @@ body {
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
 }
 
-/* Keep dark text after scrolling */
-
 .navbar--scrolled .navbar__logo {
   color: #171717;
 }
@@ -118,7 +130,6 @@ body {
 }
 
 /* Mobile toggle */
-
 .navbar__toggle {
   display: none;
 
@@ -171,7 +182,6 @@ body {
 }
 
 /* Hamburger → X */
-
 .navbar__toggle.is-open span:first-child {
   top: 14px;
   width: 30px;
@@ -184,8 +194,16 @@ body {
   transform: rotate(-45deg);
 }
 
-/* Mobile overlay */
+.navbar--open .navbar__logo {
+  color: var(--accent);
+}
 
+.navbar--open .navbar__toggle span,
+.navbar__toggle.is-open span {
+  background: var(--accent);
+}
+
+/* Mobile overlay */
 .navbar__mobile {
   position: fixed;
   inset: 0;
@@ -214,7 +232,6 @@ body {
 }
 
 /* Mobile links */
-
 .navbar__mobile a {
   display: flex;
   align-items: baseline;
@@ -272,8 +289,18 @@ body {
   color: var(--accent);
 }
 
-/* Mobile */
+@media (hover: none) {
+  .navbar__desktop a:hover,
+  .navbar__mobile a:hover {
+    color: inherit;
+  }
 
+  .navbar__desktop a:hover::after {
+    transform: scaleX(0);
+  }
+}
+
+/* Mobile */
 @media (max-width: 768px) {
   .navbar--scrolled {
     background: rgba(255, 255, 255, 0.82);
@@ -303,7 +330,6 @@ body {
 }
 
 /* Small mobile */
-
 @media (max-width: 480px) {
   .navbar {
     padding: 0 20px;
