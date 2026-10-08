@@ -47,7 +47,7 @@ export default function Navbar() {
       }`}
     >
       <a href="#top" className="navbar__logo" onClick={closeMenu}>
-        Rosid Hakimudin
+        ROSID HAKIMUDIN
       </a>
 
       <nav className="navbar__desktop">
@@ -67,14 +67,14 @@ export default function Navbar() {
       </button>
 
       <nav className={`navbar__mobile ${menuOpen ? "is-open" : ""}`}>
-        <a href="#work" onClick={closeMenu}>
+        <a href="#about" onClick={closeMenu}>
           <span>01</span>
-          WORK
+          ABOUT
         </a>
 
-        <a href="#about" onClick={closeMenu}>
+        <a href="#work" onClick={closeMenu}>
           <span>02</span>
-          ABOUT
+          WORK
         </a>
 
         <a href="#contact" onClick={closeMenu}>

@@ -143,7 +143,7 @@ body {
 
   display: block;
 
-  height: 1px;
+  height: 2.3px;
 
   background: #171717;
 
@@ -276,11 +276,11 @@ body {
 
 @media (max-width: 768px) {
   .navbar--scrolled {
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    background: transparent;
-    border-bottom: none;
-    box-shadow: none;
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
   }
 
   .navbar {
