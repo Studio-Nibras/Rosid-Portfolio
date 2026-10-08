@@ -20,12 +20,7 @@ body {
 
   z-index: 1000;
 
-  transition:
-    background 0.35s ease,
-    backdrop-filter 0.35s ease,
-    -webkit-backdrop-filter 0.35s ease,
-    border-color 0.35s ease,
-    box-shadow 0.35s ease;
+  transition: none;
 }
 
 /* Logo */
@@ -220,14 +215,14 @@ body {
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
-
-  transition: opacity 0.12s ease;
+  transition: none;
 }
 
 .navbar__mobile.is-open {
   visibility: visible;
   opacity: 1;
   pointer-events: auto;
+  transition: none;
 }
 
 /* Reset scrolled header saat mobile menu terbuka */
@@ -261,21 +256,17 @@ body {
 
   font: 600 clamp(48px, 13vw, 80px) / 0.9 "Space Grotesk";
   letter-spacing: -0.06em;
-
   text-decoration: none;
 
-  transform: translateY(25px);
+  transform: translateY(0);
   opacity: 0;
-
-  transition:
-    transform 0.18s ease,
-    opacity 0.18s ease,
-    color 0.2s ease;
+  transition: none;
 }
 
 .navbar__mobile.is-open a {
   transform: translateY(0);
   opacity: 1;
+  transition: opacity 0.08s ease, transform 0.08s ease;
 }
 
 .navbar__mobile.is-open a:nth-child(1),
