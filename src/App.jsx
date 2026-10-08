@@ -36,13 +36,7 @@ export default function App() {
 
   useEffect(() => {
     const timer = window.setTimeout(() => setIsLoading(false), 1500);
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-
-    return () => {
-      window.clearTimeout(timer);
-      document.body.style.overflow = previousOverflow;
-    };
+    return () => window.clearTimeout(timer);
   }, []);
 
   useEffect(() => {
