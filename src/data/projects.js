@@ -1,6 +1,6 @@
-import travelinaImg from "../assets/projects/travelina.png";
-import noteflowImg from "../assets/projects/noteflow.png";
-import dietmateImg from "../assets/projects/diet-mate.png";
+import travelinaImg from "../assets/projects/travelina.webp";
+import noteflowImg from "../assets/projects/noteflow.webp";
+import dietmateImg from "../assets/projects/diet-mate.webp";
 
 export const projects = [
   {
